@@ -14,7 +14,7 @@ public class User {
     )
     private int userID;
     private int age;
-    private String name;
+    private String gender;
 
     public User() {
     }
@@ -27,19 +27,20 @@ public class User {
         this.age = age;
     }
 
-    public long getId() {
-        return (long)this.userID;
+    public long getUserID() {
+        return (int)this.userID;
     }
 
-    public void setId(int id) {
+    public void setUserID(int id) {
         this.userID = id;
     }
 
-    public String getName() {
-        return this.name;
+    public String getGender() {
+        return this.gender;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
+
 }

@@ -1,4 +1,5 @@
 package com.example.service.controller;
+import com.example.service.model.ReadingHabit;
 import com.example.service.model.User;
 import com.example.service.repository.UserRepository;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(
-        origins = {"http://localhost:3000"}
+        origins = {"http://localhost:5173"}
 )
 @RestController
 public class UserController {
@@ -31,8 +32,6 @@ public class UserController {
             produces = {"application/json"}
     )
     public List<User> getUsers() {
-        this.createList();
-        User user = this.userRepository.findById(1);
         String query = "SELECT * FROM user";
         List<User> users = this.jdbcTemplate.query(query, new BeanPropertyRowMapper(User.class));
         return users;
@@ -43,26 +42,24 @@ public class UserController {
             method = {RequestMethod.GET},
             produces = {"application/json"}
     )
-    public List<User> getUsersMean() {
-        this.createList();
-        User user = this.userRepository.findById(1);
-        String query = "SELECT * FROM user";
-        List<User> users = this.jdbcTemplate.query(query, new BeanPropertyRowMapper(User.class));
-        return users;
+    public int getUsersMean() {
+        String query = "SELECT AVG(age) FROM user";
+        return this.jdbcTemplate.queryForObject(query, Integer.class);
     }
 
-    private List<User> createList() {
-        List<User> tempUsers = new ArrayList();
-        User emp1 = new User();
-        emp1.setName("User 1");
-        User emp2 = new User();
-        emp2.setName("User 2");
-        tempUsers.add(emp1);
-        tempUsers.add(emp2);
+    @RequestMapping(
+            value = {"/users/getMultiReaders"},
+            method = {RequestMethod.GET},
+            produces = {"application/json"}
+    )
+    public int getMultiReaders() {
+        String sql = "Select sum(count) \n" +
+                "  from (select userid, \n" +
+                "               count(userid) as Count \n" +
+                "          from reading_habit\n" +
+                "      group by userid);";
+        return this.jdbcTemplate.queryForObject(sql, Integer.class);
 
-        assert this.userRepository != null;
-
-        this.userRepository.saveAll(tempUsers);
-        return tempUsers;
     }
+
 }
