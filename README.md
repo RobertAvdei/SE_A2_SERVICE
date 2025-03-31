@@ -46,20 +46,20 @@ createUser()
 ## 2	Fetch all reading habits for a user	(in UserController)
 ![img_5.png](img_5.png)
 getUserHabit()
-SELECT * FROM reading_habit r LEFT JOIN book b ON r.bookid = b.bookid LEFT JOIN user u ON r.userid = u.userid where u.userID = %d ",userID
+**SELECT * FROM reading_habit r LEFT JOIN book b ON r.bookid = b.bookid LEFT JOIN user u ON r.userid = u.userid where u.userID = %d ",userID**
 
 ## 3	Update a book’s title  (in BookController)
 ![img_12.png](img_12.png)
-![Screenshot 2025-03-31 225609.png](../../../Pictures/Screenshots/Screenshot%202025-03-31%20225609.png)
-![Screenshot 2025-03-31 225625.png](../../../Pictures/Screenshots/Screenshot%202025-03-31%20225625.png)
-![Screenshot 2025-03-31 225643.png](../../../Pictures/Screenshots/Screenshot%202025-03-31%20225643.png)
+![img_14.png](img_14.png)
+![img_15.png](img_15.png)
+![img_16.png](img_16.png)
 updateBook()
 "UPDATE book SET book_name= ? WHERE bookid= ?"
 
 ## 4	Delete a record from ReadingHabit	(in ReadingHabitController) 
 ![img_7.png](img_7.png)
 deleteHabit()
-"DELETE FROM reading_habit WHERE habitID= %d", habitID
+"DELETE FROM reading_habit WHERE habitID= %d", habitID"
 
 ## 5	Calculate mean age of users	(in UserController)
 ![img_3.png](img_3.png)
