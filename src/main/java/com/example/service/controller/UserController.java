@@ -55,9 +55,10 @@ public class UserController {
     public int getMultiReaders() {
         String sql = "Select sum(count) \n" +
                 "  from (select userid, \n" +
-                "               count(userid) as Count \n" +
+                "               count(DISTINCT userid) as Count \n" +
                 "          from reading_habit\n" +
-                "      group by userid);";
+                "         group by userid\n" +
+                "        having count(userid) >= 2);";
         return this.jdbcTemplate.queryForObject(sql, Integer.class);
 
     }
