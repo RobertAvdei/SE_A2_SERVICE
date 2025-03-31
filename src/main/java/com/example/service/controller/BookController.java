@@ -47,7 +47,7 @@ public class BookController {
             produces = {"application/json"},
             consumes = {"application/json"}
     )
-    public void createUser(@RequestBody Book book, @PathVariable("id") int bookID) {
+    public void updateBook(@RequestBody Book book, @PathVariable("id") int bookID) {
         String query = "UPDATE book SET book_name= ? " +
                 "WHERE bookid= ?";
         this.jdbcTemplate.update(query, book.getBookName(), bookID);
