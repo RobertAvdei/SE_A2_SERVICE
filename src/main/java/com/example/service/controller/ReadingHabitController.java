@@ -3,7 +3,6 @@ package com.example.service.controller;
 import com.example.service.model.Book;
 import com.example.service.model.ReadingHabit;
 import com.example.service.model.User;
-import org.simpleflatmapper.jdbc.spring.JdbcTemplateMapperFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
