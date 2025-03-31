@@ -24,8 +24,10 @@ Backend & Frontend Project for Reading Habits Tracking Assignment 2
 The backend will start at http://localhost:8080.
 
 ### 👩‍🎨 Frontend Setup (React)
+**Ensure you have:**
+   - Node.js
 Install dependencies:
-'''bash
+'''
 npm install
 '''
 
@@ -85,24 +87,6 @@ String sql = "Select sum(count) from (select userid, count(DISTINCT userid) as C
 ![img_11.png](img_11.png)
 switchName()
 "ALTER TABLE user ADD name varchar(255);"
-
-## 📂 Project Structure
-Backend: Spring Boot (Java)
-
-Controllers: UserController, ReadingHabitController
-
-Models: User, ReadingHabit
-
-Repository: 
-
-Frontend: React 
-
-Components: Organized by feature (UserForm, HabitList)
-
-## 🔧 Troubleshooting
-Dependency issues: Run mvn clean install (backend) or npm install --force (frontend).
-
-CORS errors: Ensure backend allows requests from http://localhost:5173.
 
 ## 📝 Notes
 This project was developed for SE Assignment 2
