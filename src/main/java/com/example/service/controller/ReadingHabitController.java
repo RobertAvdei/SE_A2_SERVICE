@@ -6,10 +6,7 @@ import com.example.service.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -60,6 +57,16 @@ public class ReadingHabitController {
                 }
         );
     }
+
+    @DeleteMapping(
+            value = {"/habits/{id}"},
+            produces = {"application/json"}
+    )
+    public void deleteHabit(@PathVariable("id") int habitID) {
+        String query = String.format("DELETE FROM reading_habit WHERE habitID= %d", habitID) ;
+        this.jdbcTemplate.update(query);
+    }
+
 
     @RequestMapping(
             value = {"/habits/totalReadPages"},
