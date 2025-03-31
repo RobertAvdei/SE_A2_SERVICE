@@ -48,7 +48,7 @@ String query = "SELECT AVG(age) FROM user"
 ![img_3.png](img_3.png)
 
 6	Count users who read a specific book	ReadingHabitController (Custom query) //////
-7	Total pages read by all users	ReadingHabitController (Line 65)
+7	Total pages read by all users ReadingHabitController (Line 65)
 8	Count users who read >1 book	UserController (Line 50)
 9	Added Name (TEXT) column to User table	Database migration file or entity class /////
 
