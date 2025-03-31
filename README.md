@@ -71,6 +71,6 @@ This project was developed for SE Assignment 2
 ## Extra
 A low fidelity picture of our design steps;
 ![img.png](img.png)
-![img_1.png](img_1.png) 
+![img_1.png](img_1.png)  
 
 
