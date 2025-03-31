@@ -38,19 +38,52 @@ Access the app at http://localhost:5173.
 
 ## ✅ Feature Coverage 
 Requirement	Description	Location
-1	Add a user to the database	UserController (POST endpoint) ///////
-2	Fetch all reading habits for a user	ReadingHabitController (GET endpoint) ///////
-3	Update a book’s title	ReadingHabitController (PUT endpoint) ///////
-4	Delete a record from ReadingHabit	ReadingHabitController (DELETE endpoint) /////
+## 1	Add a user to the database	UserController (from line 9)
+public void setAge(int age) { this.age = age; }
+
+public void setUserID(int id) { this.userID = id; }
+
+public void setGender(String gender) { this.gender = gender; }
+![img_4.png](img_4.png)
+
+## 2	Fetch all reading habits for a user	ReadingHabitController
+public void setBookName(String bookName) { this.bookName = bookName; }
+![img_5.png](img_5.png)
+
+## 3	Update a book’s title	ReadingHabitController 
+public void setBookName(String bookName) {
+this.bookName = bookName;
+}
+![img_6.png](img_6.png)
+
+## 4	Delete a record from ReadingHabit	ReadingHabitController 
+![img_7.png](img_7.png)
+
 ## 5	Calculate mean age of users	UserController (Line 40)
 getUsersMean()
 String query = "SELECT AVG(age) FROM user"
 ![img_3.png](img_3.png)
 
-6	Count users who read a specific book	ReadingHabitController (Custom query) //////
-7	Total pages read by all users ReadingHabitController (Line 65)
-8	Count users who read >1 book	UserController (Line 50)
-9	Added Name (TEXT) column to User table	Database migration file or entity class /////
+## 6	Count users who read a specific book	ReadingHabitController 
+![img_8.png](img_8.png)
+
+## 7	Total pages read by all users ReadingHabitController (Line 65)
+getTotalReadPages() {
+String query = "SELECT SUM(pages_read) FROM reading_habit";
+![img_9.png](img_9.png)
+
+## 8	Count users who read >1 book	UserController (Line 50)
+getMultiReaders() {
+String sql = "Select sum(count) \n" +
+"  from (select userid, \n" +
+"               count(DISTINCT userid) as Count \n" +
+"          from reading_habit\n" +
+"         group by userid\n" +
+"        having count(userid) >= 2);";
+![img_10.png](img_10.png)
+
+## 9	Added Name (TEXT) column to User table	Database migration file or entity class 
+![img_11.png](img_11.png)
 
 ## 📂 Project Structure
 Backend: Spring Boot (Java)
