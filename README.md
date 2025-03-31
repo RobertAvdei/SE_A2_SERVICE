@@ -1,7 +1,7 @@
 # SE_A2_SERVICE
-Backend & Frontend Project for Reading Habits Tracking Assignmnet 2
+Backend & Frontend Project for Reading Habits Tracking Assignment 2
 
-## Features
+## 🤖 Features
 1. Provide the ability to add a user to the database
 2. Provide all the reading habit data for a certain user
 3. Provide the ability to change the title of a book in the database
@@ -23,7 +23,7 @@ Backend & Frontend Project for Reading Habits Tracking Assignmnet 2
    mvn spring-boot:run
 The backend will start at http://localhost:8080.
 
-### Frontend Setup (React)
+### 👩‍🎨 Frontend Setup (React)
 Install dependencies:
 '''bash
 npm install
@@ -36,13 +36,17 @@ npm run dev
 
 Access the app at http://localhost:5173.
 
-## ✅ Implemented Requirements
+## ✅ Feature Coverage 
 Requirement	Description	Location
 1	Add a user to the database	UserController (POST endpoint) ///////
 2	Fetch all reading habits for a user	ReadingHabitController (GET endpoint) ///////
 3	Update a book’s title	ReadingHabitController (PUT endpoint) ///////
 4	Delete a record from ReadingHabit	ReadingHabitController (DELETE endpoint) /////
-5	Calculate mean age of users	UserController (Line 40)
+## 5	Calculate mean age of users	UserController (Line 40)
+getUsersMean()
+String query = "SELECT AVG(age) FROM user"
+![img_3.png](img_3.png)
+
 6	Count users who read a specific book	ReadingHabitController (Custom query) //////
 7	Total pages read by all users	ReadingHabitController (Line 65)
 8	Count users who read >1 book	UserController (Line 50)
@@ -68,9 +72,9 @@ CORS errors: Ensure backend allows requests from http://localhost:5173.
 
 ## 📝 Notes
 This project was developed for SE Assignment 2
-## Extra
+
+## ✅ Extra
 A low fidelity picture of our design steps;
-![img.png](img.png)
-![img_1.png](img_1.png)  
+![img_2.png](img_2.png)  
 
 
